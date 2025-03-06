@@ -27,8 +27,48 @@ const loadModel = (sequelize, DataTypes) => {
     }
   }
   Restaurant.init({
-    // TODO: Include the rest of the properties of the Restaurant model
-
+    name: {
+      allownull: false,
+      type: DataTypes.STRING
+    },
+    description: DataTypes.TEXT,
+    address: {
+      allownull: false,
+      type: DataTypes.STRING
+    },
+    postalCode: {
+      allownull: false,
+      type: DataTypes.STRING
+    },
+    url: DataTypes.STRING,
+    restaurantCategoryId: {
+      allownull: false,
+      type: DataTypes.INTEGER
+    },
+    averageServiceMinutes: DataTypes.DOUBLE,
+    shippingCosts: {
+      allownull: false,
+      type: DataTypes.DOUBLE
+    },
+    email: DataTypes.STRING,
+    logo: DataTypes.STRING,
+    heroImage: DataTypes.STRING,
+    phone: DataTypes.STRING,
+    createdAt: {
+      allowNull: false,
+      type: DataTypes.DATE,
+      defaultValue: new Date()
+    },
+    updatedAt: {
+      allowNull: false,
+      type: DataTypes.DATE,
+      defaultValue: new Date()
+    },
+    userId: {
+      allownull: false,
+      type: DataTypes.INTEGER
+    },
+    status: DataTypes.ENUM
   }, {
     sequelize,
     modelName: 'Restaurant'
