@@ -41,19 +41,19 @@ const loadModel = (sequelize, DataTypes) => {
       type: DataTypes.STRING
     },
     url: DataTypes.STRING,
-    restaurantCategoryId: {
-      allownull: false,
-      type: DataTypes.INTEGER
-    },
-    averageServiceMinutes: DataTypes.DOUBLE,
     shippingCosts: {
       allownull: false,
       type: DataTypes.DOUBLE
     },
+    averageServiceMinutes: DataTypes.DOUBLE,
     email: DataTypes.STRING,
+    phone: DataTypes.STRING,
     logo: DataTypes.STRING,
     heroImage: DataTypes.STRING,
-    phone: DataTypes.STRING,
+    restaurantCategoryId: {
+      allownull: false,
+      type: DataTypes.INTEGER
+    },
     createdAt: {
       allowNull: false,
       type: DataTypes.DATE,
@@ -68,7 +68,15 @@ const loadModel = (sequelize, DataTypes) => {
       allownull: false,
       type: DataTypes.INTEGER
     },
-    status: DataTypes.ENUM
+    status: {
+      type: DataTypes.ENUM,
+      values: [
+        'online',
+        'offline',
+        'closed',
+        'temporarily closed'
+      ]
+    }
   }, {
     sequelize,
     modelName: 'Restaurant'
